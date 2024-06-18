@@ -7,10 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Posting Application</title>
   </head>
-  <body>
-    <img src="{% static 'images/logo.png' %}" alt="images" />
+  <style>
+    .blogImage{
+      position: absolute;
+      top: 15%;
+      left: 55%;
+      max-width: 70%;
+      height: 70%;
+      border-radius: 40px;
+    }
+    .blogtext{
+      position: absolute;
+      top: 35%;
+      left: 10%;
+      max-width: 50%;
+      height: auto;
+    }
+    .blogtext h2{
+      font-size: 50px;
+      font-weight: bold;
+      font-family: "Playwrite US Modern", cursive;
+    }
+    .paragraph {
+      font-size: 20px;
+      font-family: "Playwrite US Modern", cursive;
+      margin-top: 3%;
+      max-width: 80%;
+    }
+    .GetStarted{
+      position: absolute;
+      top: 60%;
+      left: 10%;
+      width: 8%;
+      border-radius: 12px;
+      padding: 8px;
+    }
+    .GetStarted:hover{
+      background-color: black;
+      color: white;
+    }
     
+
+  </style>
+  <body>
+      <img src="{% static 'images/placeholder.svg' %}" class="blogImage" alt="Blog Post Images">
+      <div class='blogtext'>
+        <h2>Unleash Your Creativity <br> with Our Blog Posting App</h2>
+        <p class="paragraph">Effortlessly create, publish, and manage your blog posts with our powerful and user-friendly application.</p>
+      </div>
+      <button class="GetStarted" href="" type="button" class="btn btn-outline-primary">Get Started</button>
   </body>
 </html>
-
 {% endblock content %}
