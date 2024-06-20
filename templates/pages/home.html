@@ -1,19 +1,24 @@
-{% extends "pages/base.html" %} {% block content %} {% load static %}
+
+{% extends "pages/base.html" %}{% load static %}{% block content %} 
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Posting Application</title>
   </head>
   <style>
+    .container1{
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
     .blogImage{
-      position: absolute;
-      top: 15%;
-      left: 55%;
-      max-width: 70%;
-      height: 70%;
+      position: relative;
+      top: 10%%;
+      left: 50%;
+      bottom: 10%;
+      max-width: 35%;
+      height: 35%;
       border-radius: 40px;
     }
     .blogtext{
@@ -50,12 +55,15 @@
 
   </style>
   <body>
-      <img src="{% static 'images/placeholder.svg' %}" class="blogImage" alt="Blog Post Images">
-      <div class='blogtext'>
-        <h2>Unleash Your Creativity <br> with Our Blog Posting App</h2>
-        <p class="paragraph">Effortlessly create, publish, and manage your blog posts with our powerful and user-friendly application.</p>
+      <div class="container1">
+        <img src="{% static 'images/placeholder.svg' %}" class="blogImage" alt="Blog Post Images">
+        <div class='blogtext'>
+          <h2>Unleash Your Creativity <br> with Our Blog Posting App</h2>
+          <p class="paragraph">Effortlessly create, publish, and manage your blog posts with our powerful and user-friendly application.</p>
+        </div>
+        <button class="GetStarted" href="" type="button" class="btn btn-outline-primary">Get Started</button>
       </div>
-      <button class="GetStarted" href="" type="button" class="btn btn-outline-primary">Get Started</button>
   </body>
 </html>
+
 {% endblock content %}
