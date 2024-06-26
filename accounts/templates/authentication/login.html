@@ -193,7 +193,7 @@
   </style>
   <body>
     <div class="container d-flex align-items-center justify-content-center">
-      <form method="POST" class="form" action="">
+      <form method="POST" class="form" action="{% url 'login' %}">
         {% csrf_token %}
         <p class="title">Login</p>
         <p class="message">Make Sure to Enter Valid Email & Password.</p>
@@ -215,7 +215,7 @@
         </label>
         <button class="submit">Submit</button>
         <button class="submit">
-          <i class="bi bi-google"></i>  Continue with Google
+          <i class="bi bi-google"></i> Continue with Google
         </button>
         <p class="d-flex align-items-center justify-content-center">OR</p>
         <a class="btn btn-primary create" href="{% url 'signup'  %}"
