@@ -6,34 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="{% static 'images/logo.png' %}" />
   <title>Blog Posting Application</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: white;
+      margin-left: 10px;
+    }
+    .nav-link::after {
+      content: '';
+      height: 3px;
+      width: 0%;
+      background: white;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after {
+      width: 95%;
+    }
+    .dropdown-toggle {
+      color: white;
+    }
+    .dropdown-toggle .bi-person-fill {
+      margin-left: 10px;
+    }
+  </style>
 </head>
-<style>
-  .nav-link {
-    position: relative;
-    text-decoration: none;
-    color: white;
-    margin-left: 10px;
-  }
-  .nav-link::after {
-    content: '';
-    height: 3px;
-    width: 0%;
-    background: white;
-    position: absolute;
-    left: 0;
-    bottom: 1px;
-    transition: width 0.3s;
-  }
-  .nav-link:hover::after {
-    width: 95%;
-  }
-  .dropdown-toggle {
-    color: white;
-  }
-  .dropdown-toggle .bi-person-fill {
-    margin-left: 10px;
-  }
-</style>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -52,52 +53,44 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link font-montserrat" aria-current="page" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-montserrat" href="">Contents</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-montserrat" href="">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-montserrat" href="">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link font-montserrat" href="">Contact</a>
-          </li>
-        </ul>
-        {% comment %} <form class="d-flex" role="search" method="POST" action="">
-          {% csrf_token %}
-          <input
-            class="form-control me-3 font-montserrat"
-            type="search"
-            placeholder="Search Venues or Events"
-            aria-label="Search"
-            name="searched"
-          />
-          <button class="btn btn-outline-success me-3 font-montserrat" type="submit">Search</button>
-        </form> {% endcomment %}
-        {% if user.is_authenticated %}
-        <div class="dropdown">
-          <a class="dropdown-toggle font-montserrat text-decoration-none gap-2 me-5" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ user.first_name }}<i class="bi bi-person-fill"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-            <li><a class="dropdown-item font-montserrat" href="">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item font-montserrat" href="{% url 'logout' %}">Logout</a></li>
+        <div class="d-flex flex-grow-1 justify-content-center">
+          <ul class="navbar-nav d-flex flex-row">
+            <li class="nav-item">
+              <a class="nav-link font-montserrat" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-montserrat" href="">Contents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-montserrat" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link font-montserrat" href="{% url 'contact' %}">Contact</a>
+            </li>
           </ul>
         </div>
-        {% else %}
-        <a href="{% url 'login' %}" class="btn btn-outline-light font-montserrat me-5">Login</a>
-        {% endif %}
+        <div class="d-flex align-items-center">
+          {% if user.is_authenticated %}
+          <div class="dropdown">
+            <a class="dropdown-toggle font-montserrat text-decoration-none gap-2 me-5" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ user.first_name }}<i class="bi bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item font-montserrat" href="">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item font-montserrat" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </div>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn btn-outline-light font-montserrat me-5">Login</a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </nav>
-  
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

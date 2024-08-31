@@ -1,4 +1,4 @@
-{% extends "pages/base.html" %} {% block content %}
+{% extends "pages/base.html" %} {% block content %} {% load socialaccount %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -214,10 +214,14 @@
           <span>Password</span>
         </label>
         <button class="submit">Submit</button>
-        <button class="submit">
-          <i class="bi bi-google"></i> Continue with Google
-        </button>
         <p class="d-flex align-items-center justify-content-center">OR</p>
+        <a
+          href="{% provider_login_url 'google' %}"
+          class="btn btn-primary create"
+        >
+          <i class="bi bi-google"></i> Continue with Google
+        </a>
+
         <a class="btn btn-primary create" href="{% url 'signup'  %}"
           >Creata a account</a
         >
