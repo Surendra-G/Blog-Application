@@ -59,7 +59,7 @@
               <a class="nav-link font-montserrat" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link font-montserrat" href="">Contents</a>
+              <a class="nav-link font-montserrat" href="{% url 'contents' %}">Contents</a>
             </li>
             <li class="nav-item">
               <a class="nav-link font-montserrat" href="{% url 'about' %}">About</a>
@@ -77,6 +77,8 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
               <li><a class="dropdown-item font-montserrat" href="">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item font-montserrat" href="">Setting</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item font-montserrat" href="{% url 'logout' %}">Logout</a></li>
             </ul>

@@ -1,61 +1,77 @@
-{% extends "pages/base.html" %} {% load static %} {% block content %}
+{% extends "pages/base.html" %}
+{% load static %}
+{% block content %}
 <!-- Header Section -->
-<div class="about-header text-center mt-5 mb-5">
+<div class="about-header text-center mt-4 mb-4">
   <h1 class="display-3 mb-0">Contact Us</h1>
 </div>
-<hr>
-<!-- Contact Information -->
-<div class="container text-center">
+<hr style="border: 0; height: 1px; background-color: #343A40; margin: 2px 0;">
+
+
+<!-- Contact Information and Follow Us Side by Side -->
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-4 mt-4">
-      <div class="card">
-        <img src="{% static 'images/office3.jpg' %}" class="card-img-top" style="weight:100 height:100" alt="Office Images">
+    <!-- Contact Information -->
+    <div class="col-md-6 mt-4">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'images/office1.jpg' %}" class="d-block w-100" alt="Office Image 1">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/office2.jpg' %}" class="d-block w-100" alt="Office Image 2">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/office3.jpg' %}" class="d-block w-100" alt="Office Image 3">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="card mt-4">
         <ul class="list-unstyled">
           <li class="mb-3">
             <strong>Email:</strong>
-            <a href="mailto:mrsurendragiri2003@gmail.com" class="text-primary"
-              >mrsurendragiri2003@gmail.com</a
-            >
+            <a href="mailto:mrsurendragiri2003@gmail.com" class="text-primary">mrsurendragiri2003@gmail.com</a>
           </li>
           <li class="mb-3">
             <strong>Phone:</strong>
-            <a href="tel:+9779865458514" class="text-primary"
-              >+977 9865458514</a
-            >
+            <a href="tel:+9779865458514" class="text-primary">+977 9865458514</a>
           </li>
           <li><strong>Address:</strong> Chandragiri-01, Kathmandu, Nepal</li>
         </ul>
       </div>
+    </div>
 
-      <hr />
-
+    <!-- Follow Us Section -->
+    <div class="col-md-4 mt-4">
       <div class="card mb-4">
-        <h2 class="mt-4 text-decoration-underline">Follow Us</h2>
-        <div class="social-icons mt-3 mb-4 ">
-          <a
-            href="https://www.facebook.com/profile.php?id=61552798688578"
-            class="text-dark mx-2"
-            ><i class="fab fa-facebook-f fa-2x"></i
-          ></a>
-          <a href="https://x.com/Surendr48649414" class="text-dark mx-2"
-            ><i class="fab fa-twitter fa-2x"></i
-          ></a>
-          <a
-            href="https://www.instagram.com/surendra___g?igsh=MTJpaDg4NGp4Z3dpbA=="
-            class="text-dark mx-2"
-            ><i class="fab fa-instagram fa-2x"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/surendra-giri-4823b830b/"
-            class="text-dark mx-2"
-            ><i class="fab fa-linkedin-in fa-2x"></i
-          ></a>
+        <h2 class="mt-4 text-decoration-underline text-center">Follow Us</h2>
+        <div class="social-icons mt-3 mb-4 text-center">
+          <a href="https://www.facebook.com/profile.php?id=61552798688578" class="text-dark mx-2"><i class="fab fa-facebook-f fa-2x"></i></a>
+          <a href="https://x.com/Surendr48649414" class="text-dark mx-2"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.instagram.com/surendra___g?igsh=MTJpaDg4NGp4Z3dpbA==" class="text-dark mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/surendra-giri-4823b830b/" class="text-dark mx-2"><i class="fab fa-linkedin-in fa-2x"></i></a>
         </div>
       </div>
     </div>
   </div>
 </div>
-{% endblock content %} {% comment %} {% block styles %}
+{% endblock content %}
+
+{% block styles %}
 <style>
   .about-header {
     background-color: #343a40; /* Dark background color */
@@ -73,7 +89,9 @@
     color: #007bff;
   }
 </style>
-{% endblock styles %} {% endcomment %} {% block scripts %}
+{% endblock styles %}
+
+{% block scripts %}
 <!-- Font Awesome for social media icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
