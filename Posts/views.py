@@ -11,3 +11,6 @@ def contact(request):
 
 def contents( request):
     return render(request, "pages/contents.html")
+
+def profile(request):
+    return render(request, "pages/profile.html")
