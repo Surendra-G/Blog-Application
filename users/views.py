@@ -37,4 +37,9 @@ def update_profile_picture(request):
         else:
             messages.error(request, 'No file uploaded.')
         return redirect('profile')
-    return redirect('profile')  # Redirect to profile page if not POST
+    return redirect('profile')  
+
+# functionality for the setting 
+@login_required
+def users_setting( request):
+    return redirect('users_setting')

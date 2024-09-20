@@ -5,14 +5,22 @@
 <div class="container mt-5">
   <div class="d-flex flex-column align-items-center text-center">
     {% if user.profile.profile_picture %}
-      <img src="{{ user.profile.profile_picture.url }}" alt="Profile" class="rounded-circle mb-3" width="120" height="120">
+      <img src="{{ user.profile.profile_picture.url }}" alt="Profile" class="rounded-circle mb-3" width="200" height="200">
     {% else %}
       <i class="bi bi-person-fill rounded-circle mb-3" width="120" height="120"></i>
     {% endif %}
-    <h2 class="h4 font-weight-bold">{{ user.first_name }} {{ user.last_name }}</h2>
-    <p class="text-muted">
-      {{ user.profile.bio|default:"Software Engineer" }}
+    <h1 class="h4 fs-1 font-weight-bold">{{ user.first_name }} {{ user.last_name }}</h1>
+    <p class="text-muted fs-3">
+      {{ user.profile.bio|default:"Writer" }}
     </p>
+    <h3 class="h5 font-weight-bold">Update Profile Picture</h3>
+    <form method="post" enctype="multipart/form-data" action="{% url 'update_profile_picture' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="file" name="profile_picture" class="form-control-file">
+      </div>
+      <button type="submit" class="btn btn-primary">Update Picture</button>
+    </form>
   </div>
 
   <hr class="my-4">
@@ -33,14 +41,7 @@
         <a href="#" class="btn btn-primary">Read more</a>
       </div>
     </div>
-    <h3 class="h5 font-weight-bold">Update Profile Picture</h3>
-    <form method="post" enctype="multipart/form-data" action="{% url 'update_profile_picture' %}">
-      {% csrf_token %}
-      <div class="form-group">
-        <input type="file" name="profile_picture" class="form-control-file">
-      </div>
-      <button type="submit" class="btn btn-primary">Update Picture</button>
-    </form>
+    
   </div>
 </div>
 {% endif %}
