@@ -1,0 +1,119 @@
+{% extends "pages/base.html" %} {% block content %}
+
+<div class="about-header text-center mt-4 mb-4">
+  <h1 class="display-3 mb-0">Settings</h1>
+</div>
+<hr style="border: 0; height: 2px; background-color: #343a40; margin: 10px 0" />
+
+<div class="bg-light mt-5 d-flex align-items-center justify-content-center">
+    <div class="card w-100" style="max-width: 500px;">
+        <div class="card-body">
+            <form action="/settings" method="POST">
+                <!-- firstname Field -->
+                <div class="mb-3">
+                    <label for="firstname" class="form-label fw-bold">Firstname</label>
+                    <input
+                        id="firstname"
+                        name="firstname"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter your firstname"
+                    />
+                </div>
+
+                <!-- Lastname Field -->
+                <div class="mb-3">
+                    <label for="lastname" class="form-label fw-bold">Lastname</label>
+                <input
+                        id="lastname"
+                        name="lastname"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter your lastname"
+                    />
+                </div>
+
+                <!-- Username Field -->
+                <div class="mb-3">
+                    <label for="username" class="form-label fw-bold">Username</label>
+                    <input
+                        id="username"
+                        name="username"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter your username"
+                        required
+                    />
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-bold">Email</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        class="form-control"
+                        placeholder="Enter your email"
+                        required
+                    />
+                </div>
+
+                <!-- Password Field -->
+                <div class="mb-3 position-relative">
+                    <label for="password" class="form-label fw-bold ">Password</label>
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        class="form-control"
+                        placeholder="Enter your password" 
+                        required
+                    />
+                    
+                    <!-- Eye Icon -->
+                    <button
+                        type="button"
+                        class="btn position-absolute end-0 top-50 translate-middle-y me-2"
+                        onclick="togglePassword()"
+                        style="margin-top:15px; border: none; background: none; padding: 0; z-index: 1; height: 100%; display: flex; align-items: center;"
+                    >
+                        <i id="eye-icon" class="bi bi-eye-fill"></i>
+                    </button>
+                </div>
+
+                <!-- Save Button -->
+                <div class="d-flex justify-content-between">
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Save Changes
+                    </button>
+                    <a href="/profile" class="text-muted">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const passwordField = document.getElementById("password");
+        const eyeIcon = document.getElementById("eye-icon");
+
+        // Toggle the input type between password and text
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("bi-eye-fill");
+            eyeIcon.classList.add("bi-eye-slash-fill");
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("bi-eye-slash-fill");
+            eyeIcon.classList.add("bi-eye-fill");
+        }
+    }
+</script>
+
+
+{% endblock %}
